@@ -3,7 +3,6 @@ Welcome to TBM api docs
 ==============
 
 .. toctree::
-    :hidden:
     :maxdepth: 2
 
     welcome
