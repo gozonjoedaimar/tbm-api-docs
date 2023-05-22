@@ -18,7 +18,7 @@ Request schema
 
 .. code-block::
 
-    POST: /api/device/heartbeat
+    PUT: /api/device/heartbeat
     {
         "deviceId": {
             type: String,
@@ -85,6 +85,7 @@ Request schema
 
 .. code-block::
 
+    PUT /api/topshelf/events
     {
         "deviceId": {
             type: String, # Encoded string
@@ -143,3 +144,63 @@ Sample cURL response
             }
         }
     ]
+
+
+Register
+--------
+
+This API allows you to send data to the server when the device is booted up.
+
+Request schema
+^^^^^^^^^^^^^^
+
+.. code-block::
+
+    POST /api/topshelf/register
+    {
+      "deviceId": {
+          type: String,
+          required: true
+      }
+    }
+
+
+Response schema
+^^^^^^^^^^^^^^^
+
+.. code-block::
+
+    {
+        "status": Boolean,
+        "message": String,
+        "data": {
+            "updated": Date,
+        }
+    }
+
+
+Sample cURL request
+^^^^^^^^^^^^^^^^^^^
+
+.. code-block::
+
+    curl --location '/api/topshelf/register' \
+    --header 'Content-Type: application/json' \
+    --data '{
+      "deviceId": "4748s0xxxxx74047444039"
+    }'
+
+
+Sample cURl response
+^^^^^^^^^^^^^^^^^^^^
+
+.. code-block::
+
+    {
+        "status": true,
+        "message": "Device successfully updated",
+        "data": {
+            "updated": "05/22/23 10:41:47",
+        }
+    }
+
