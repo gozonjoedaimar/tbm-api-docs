@@ -1,5 +1,35 @@
 Micros/Aloha:
 =============
 
-.. note::
-   This documentation is a work in progress. We are continuously adding more information and updates. In the meantime, please feel free to browse the available links in our documentation.
+Registration
+------------
+
+Handles the transmission of data to the API and facilitates the retrieval of an API key during device bootup
+
+Request schema
+^^^^^^^^^^^^^^
+
+.. code-block::
+
+	POST /api/pos/ 
+	{
+		device_id: {
+			type: String, # device id is Mac Address
+			required: true
+		}, 
+		type: {
+			type: String, # 1 = Micros, 2 = Aloha
+			required: true,
+		}
+	} 
+
+Response schema
+^^^^^^^^^^^^^^^
+
+.. code-block::
+
+	{
+		status:true, # Boolean
+		message:”POS successfully registered.”, # String
+		key: (API KEY)
+	} 

@@ -22,6 +22,7 @@ This is a comprehensive resource providing API documentation, guides, and refere
     :caption: POS API
 
     /api/pos/index.rst
+    /api/pos/order.rst
 
 .. toctree::
     :hidden:
