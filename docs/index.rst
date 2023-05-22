@@ -1,22 +1,18 @@
-==============
 Welcome to TBM api docs
-==============
+=======================
 
 .. toctree::
     :hidden:
-    :caption: Device API
 
     /api/device/index.rst
 
 .. toctree::
     :hidden:
-    :caption: POS API
 
     /api/pos/index.rst
 
 .. toctree::
     :hidden:
-    :caption: Mobile API
 
     /api/mobile/index.rst
 
