@@ -7,12 +7,24 @@ This is a comprehensive resource providing API documentation, guides, and refere
     :hidden:
     :caption: Getting started
 
-    ./prerequisites.rst
+    /prerequisites.rst
 
 .. toctree::
     :hidden:
     :caption: Device API
     :maxdepth: 2
 
-    ./api/device/topshelf.rst
-    ./api/device/speedwell_or_backbar.rst
+    /api/device/topshelf.rst
+    /api/device/speedwell_or_backbar.rst
+
+.. toctree::
+    :hidden:
+    :caption: POS API
+
+    /api/pos/index.rst
+
+.. toctree::
+    :hidden:
+    :caption: Mobile API
+
+    /api/mobile/index.rst

@@ -1,13 +1,6 @@
 Topshelf API
 ============
 
-.. toctree::
-    :hidden:
-    :maxdepth: 0
-
-    Heartbeat
-    Events (Lift/Place)
-
 Heartbeat
 ---------
 
