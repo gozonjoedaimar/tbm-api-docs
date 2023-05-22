@@ -15,3 +15,4 @@ This is a comprehensive resource providing API documentation, guides, and refere
     :maxdepth: 2
 
     ./api/device/topshelf.rst
+    ./api/device/speedwell_or_backbar.rst
