@@ -61,3 +61,51 @@ Example response
 			"loadCell": "b6xxxxx351"
 		}
 	}
+
+Register
+--------
+
+Handles the bidirectional transmission of data between the device and the server during device bootup
+
+Request schema/example
+^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block::
+
+	POST /api/device/place/<device_id>
+	{
+		"measured_weight": "1198",
+		"rfid": "RD0104",
+		"temperature": "",
+		"batteryLevel": ""
+	}
+
+Example response
+^^^^^^^^^^^^^^^^
+
+.. code-block::
+
+	{
+		"locate": 0,
+		"_id": "5d4911960xxxxx2507ab9081",
+		"typeName": "Speed Well Scale",
+		"color": {
+			"r": "255",
+			"g": "074",
+			"b": "000"
+		},
+		"c": "0000.00",
+		"typeID": 1,
+		"name": "Speedwell 1",
+		"id": "b6xxxxx351",
+		"createdDate": "08/06/19 01:35:18",
+		"__v": 1475,
+		"online": false,
+		"update": "05/22/23 19:25:50",
+		"status": [
+			1
+		],
+		"dateTime": "06/21/22 16:42:09",
+		"ip": "10.99.201.66",
+		"serverTime": "05/22/23 19:41:29"
+	}
