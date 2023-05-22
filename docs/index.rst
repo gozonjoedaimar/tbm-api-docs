@@ -6,12 +6,12 @@ Welcome to TBM api docs
     :maxdepth: 2
 
     welcome
-    Device api
+    Device API
         api_doc1
         api_doc2
-    POS api
+    POS API
         api_doc1
-    Mobile api
+    Mobile API
         api_doc1
 
 This is the first page of the documentation for our project. Here, you will find valuable information, guides, and API documentation to help you get started and make the most out of our project.
