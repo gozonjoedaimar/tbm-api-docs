@@ -37,8 +37,26 @@ app.use(function(req, res, next) {
   req.__appdir = __dirname;
   req.__docdir = '/build/html/';
   req.__public = '/public/';
-  req.db = mongoose;
   next();
+})
+
+// manage auth
+app.use(function(req, res, next) {
+  if (req.path.match(/\.(css|woff|woff2|js|ico)$/)) {
+    next();
+  }
+  else if (req.path.includes('/login')) {
+    if (req.session.user) {
+      return res.redirect('/');
+    }
+    next();
+  }
+  else {
+    if (!req.session.user) {
+      return res.redirect('/login');
+    }
+    next();
+  }
 })
 
 /** load tailwind */

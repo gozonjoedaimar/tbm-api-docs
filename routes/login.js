@@ -38,6 +38,7 @@ router.post('/', function(req, res, next) {
         if (user) {
           if (user.auth(req.body.password)) {
             req.flash('info', JSON.stringify({message: 'Logged in successfully', type: "success"}));
+            req.session.user = { username: req.body.username };
           }
           else {
             req.flash('info', JSON.stringify({message: 'User/Password does not match', type: "warning"}));
