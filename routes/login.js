@@ -9,7 +9,15 @@ var googleRecaptcha = new reCAPTCHA({
 
 /* GET login page. */
 router.get('/',function(req, res, next) {
-  res.render('login', { title: "Login" });
+  let flash = req.flash('info');
+  flash = flash.length > 0 ? flash[0]: "[]";
+  try{
+    flash = JSON.parse(flash);
+  }
+  catch(e){
+    debug(e.message);
+  }
+  res.render('login', { title: "Login", notif: flash });
 });
 
 router.post('/', function(req, res, next) {
@@ -18,9 +26,12 @@ router.post('/', function(req, res, next) {
   googleRecaptcha.verify({response: recaptchaResponse}, function(error) {
     if (error) {
       debug(error.message);
-      return res.redirect('/login/?login=error');
+      req.flash('info', JSON.stringify({message: "reCAPTCHA error", type: "danger"}));
     }
-    return res.redirect('/login/?login=success');
+    else {
+      req.flash('info', JSON.stringify({message: 'reCAPTCHA SUCCESS', type: "success"}));
+    }
+    return res.redirect('/login');
   });
 })
 
