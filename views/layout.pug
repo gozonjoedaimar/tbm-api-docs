@@ -1,7 +1,7 @@
 doctype html
 html
   head
-    title= title
+    title= message && error && error.status ? error.status + " - " + message : title
     link(rel='stylesheet', href='/vendor.css')
     script(src="https://www.google.com/recaptcha/api.js" async defer)
   body
