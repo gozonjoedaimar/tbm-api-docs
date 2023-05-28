@@ -1,7 +1,6 @@
 var express = require('express');
 var router = express.Router();
 var path = require('path');
-var glob = require('glob');
 var fs = require('fs');
 var debug = require('debug')('tbmapidocs:route:index');
 
@@ -22,7 +21,6 @@ router.get(/\.html$/, function(req, res, next) {
     res.sendFile(file);
   }
   catch(e) {
-    debug("There was an error using glob");
     debug(e.message);
     next();
   }
