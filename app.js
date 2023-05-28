@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var mongodbConnect = require('./resources/db/connect');
 
 var indexRouter = require('./routes/index');
 
@@ -18,11 +19,14 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+const mongoose = mongodbConnect.init();
+
 /** Route utils */
 app.use(function(req, res, next) {
   req.__appdir = __dirname;
   req.__docdir = '/build/html/';
   req.__public = '/public/';
+  req.db = mongoose;
   next();
 })
 
