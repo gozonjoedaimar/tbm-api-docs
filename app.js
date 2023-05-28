@@ -3,6 +3,8 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var flash = require('connect-flash');
+var session = require('express-session');
 var mongodbConnect = require('./resources/db/connect');
 
 var indexRouter = require('./routes/index');
@@ -19,6 +21,14 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+// Session
+app.use(session({
+  secret: 'some orange bunny',
+  resave: false,
+  saveUninitialized: true
+}))
+app.use(flash());
 
 const mongoose = mongodbConnect.init();
 
