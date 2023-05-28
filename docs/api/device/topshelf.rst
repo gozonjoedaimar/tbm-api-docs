@@ -118,7 +118,7 @@ Sample cURL request
     --header 'Content-Type: application/json' \
     --data '{
         "deviceId": "4748s04xxxxx4047444039",
-        "rfid1": "RD0036", # or null for lift
+        "rfid": "RD0036", # or null for lift
         "TimeStamp": "1599550234396"
     }'
 
