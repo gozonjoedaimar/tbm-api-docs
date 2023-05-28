@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var flash = require('connect-flash');
 var session = require('express-session');
+var querystring = require('querystring');
 var mongodbConnect = require('./resources/db/connect');
 
 var indexRouter = require('./routes/index');
@@ -47,11 +48,14 @@ app.use(function(req, res, next) {
   }
   else if (req.path.includes('/login')) {
     if (req.session.user) {
-      return res.redirect('/');
+      return res.redirect(req.session.intended ? req.session.intended: '/');
     }
     next();
   }
   else {
+    let pathStr = req.path;
+    pathStr += "?" + querystring.stringify(req.query);
+    req.session.intended = pathStr;
     if (!req.session.user) {
       return res.redirect('/login');
     }
