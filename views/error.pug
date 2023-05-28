@@ -1,7 +1,9 @@
 extends layout
 
 block content
-  h1= message
-  h2= error.status
-  if env && env.dev
-    pre #{error.stack}
+  div(class="min-h-screen flex items-center justify-center")
+    div(class="text-center")
+      h1(class="text-6xl font-bold text-red-500 mb-4") #{message}
+      h2(class="text-2xl text-gray-700 mb-2") #{error.status}
+      if env && env.dev
+        pre(class="text-left text-xs max-w-3xl px-4 pb-3 mt-8 overflow-x-auto") #{error.stack}

@@ -26,6 +26,11 @@ app.use(function(req, res, next) {
   next();
 })
 
+/** load tailwind */
+app.get('/vendor.css', function(req, res, next) {
+  res.sendFile(path.join(__dirname, 'resources/css/vendor.css'));
+});
+
 app.use('/',indexRouter);
 
 // catch 404 and forward to error handler
