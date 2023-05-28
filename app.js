@@ -6,6 +6,7 @@ var logger = require('morgan');
 var mongodbConnect = require('./resources/db/connect');
 
 var indexRouter = require('./routes/index');
+var loginRouter = require('./routes/login');
 
 var app = express();
 
@@ -36,6 +37,7 @@ app.get('/vendor.css', function(req, res, next) {
 });
 
 app.use('/',indexRouter);
+app.use('/login',loginRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
