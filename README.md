@@ -22,6 +22,24 @@
 
     sphinx-build -b html docs/ build/html
 
+## Run the docs
+
+### Copy .env file
+
+    cp .env.sample .env
+
+### Install dependencies
+
+    npm install
+    npm run tailwind:css
+
+### Start docs
+
+    # dev
+    npm run nodemon
+    # prod
+    npm start
+
 ## Open the docs in your browser
 
-    ./build/html/index.html
+    http://localhost:3232
