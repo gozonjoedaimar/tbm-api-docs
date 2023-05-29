@@ -54,7 +54,7 @@ app.use(function(req, res, next) {
   }
   else {
     let pathStr = req.path;
-    pathStr += "?" + querystring.stringify(req.query);
+    if (Object.keys(req.query).length !== 0) pathStr += "?" + querystring.stringify(req.query);
     req.session.intended = pathStr;
     if (!req.session.user) {
       return res.redirect('/login');
