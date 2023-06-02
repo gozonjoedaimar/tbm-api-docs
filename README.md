@@ -18,10 +18,6 @@
 
     pip3 install sphinx_rtd_theme
 
-## Build the docs
-
-    sphinx-build -b html docs/ build/html
-
 ## Run the docs
 
 ### Copy .env file
@@ -32,6 +28,7 @@
 
     npm install
     npm run tailwind:css
+    npm run build-doc
 
 ### Start docs
 
