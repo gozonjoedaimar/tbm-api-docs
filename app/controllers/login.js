@@ -3,10 +3,6 @@ const path = require('path');
 var reCAPTCHA = require('google-recaptcha');
 var debug = require('debug')('tbmapidocs:route:login');
 
-var googleRecaptcha = new reCAPTCHA({
-  secret: process.env.RECAPTCHA_SECRET
-});
-
 function index(req, res, next) {
   let flash = req.flash('info');
   flash = flash.length > 0 ? flash[0]: "[]";
@@ -22,6 +18,10 @@ function index(req, res, next) {
 function store(req, res, next) {
   const recaptchaResponse = req.body['g-recaptcha-response'];
   const User = require(path.join(req.__appdir, '/app/models/Users.js'));
+
+  const googleRecaptcha = new reCAPTCHA({
+    secret: __config('services/google_recaptcha/secret')
+  });
 
   googleRecaptcha.verify({response: recaptchaResponse}, function(error) {
     if (error) {

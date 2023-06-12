@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const debug = require('debug')('tbmapidocs:resources/db/connect');
 
 function init() {
-  const uri = process.env.MONGODB;
+  const uri = __config('db/uri');
 
   mongoose.connect(uri);
 

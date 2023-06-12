@@ -6,7 +6,6 @@ var logger = require('morgan');
 var flash = require('connect-flash');
 var session = require('express-session');
 var querystring = require('querystring');
-var mongodbConnect = require('./resources/db/connect');
 
 var app = express();
 
@@ -17,6 +16,9 @@ globalThis.local_require = function(local_path) {
 
 // config loader
 globalThis.__config = require('./app/config');
+
+// db resource
+var mongodbConnect = require('./resources/db/connect');
 
 // routes
 var indexRouter = require('./routes/index');
