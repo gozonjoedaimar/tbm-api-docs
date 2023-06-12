@@ -5,8 +5,8 @@
   "scripts": {
     "start": "node -r dotenv/config ./bin/www",
     "tailwind:css": "postcss resources/css/tailwind.css -o resources/css/vendor.css",
-    "start-dev": "npm run tailwind:css && npm start",
-    "nodemon": "npx nodemon --exec \"npm run start-dev\" --ext pug,js",
+    "build-start": "npm run tailwind:css && npm start",
+    "start-dev": "npx nodemon --exec \"npm run build-start\" --ext pug,js",
     "build-doc": "sphinx-build -b html docs/ build/html"
   },
   "dependencies": {
