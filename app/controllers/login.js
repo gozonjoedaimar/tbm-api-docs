@@ -24,7 +24,7 @@ function store(req, res, next) {
   });
 
   googleRecaptcha.verify({response: recaptchaResponse}, function(error) {
-    if (error) {
+    if (__config('services/google_recaptcha/enabled') && error) {
       debug(error.message);
       req.flash('info', JSON.stringify({message: "reCAPTCHA error", type: "danger"}));
       return res.redirect('/login');

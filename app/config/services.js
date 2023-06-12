@@ -1,6 +1,10 @@
 module.exports = {
   "google_recaptcha": {
-    "enabled": JSON.parse(process.env.RECAPTCHA_ENABLED),
+    "enabled": (
+      process.env.RECAPTCHA_ENABLED
+      ? JSON.parse(process.env.RECAPTCHA_ENABLED)
+      : false
+    ),
     "site": process.env.RECAPTCHA_SITE,
     "secret": process.env.RECAPTCHA_SECRET
   }
