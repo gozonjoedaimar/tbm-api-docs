@@ -10,13 +10,13 @@ var mongodbConnect = require('./resources/db/connect');
 
 var app = express();
 
-// config loader
-globalThis.__config = require('./app/config/index');
-
 // local require
 globalThis.local_require = function(local_path) {
   return require(path.join(__dirname, local_path));
 }
+
+// config loader
+globalThis.__config = require('./app/config');
 
 // routes
 var indexRouter = require('./routes/index');

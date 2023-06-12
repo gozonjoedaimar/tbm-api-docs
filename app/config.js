@@ -1,4 +1,5 @@
 const debug = require('debug')('tbmapidocs:app/config/index');
+const path = require('node:path');
 
 module.exports = function(slug) {
   //
@@ -27,9 +28,9 @@ module.exports = function(slug) {
       }
     }
     else {
-      const cfg_path = "./"+req[idx];
+      const cfg_path = path.join("app/config", req[idx]);
       try {
-        config = require(cfg_path);
+        config = local_require(cfg_path);
         idx += 1;
         return read(req, config, idx, tree);
       }
