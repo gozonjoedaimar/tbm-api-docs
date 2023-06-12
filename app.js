@@ -8,13 +8,19 @@ var session = require('express-session');
 var querystring = require('querystring');
 var mongodbConnect = require('./resources/db/connect');
 
-var indexRouter = require('./routes/index');
-var loginRouter = require('./routes/login');
-
 var app = express();
 
 // config loader
 globalThis.__config = require('./app/config/index');
+
+// local require
+globalThis.local_require = function(local_path) {
+  return require(path.join(__dirname, local_path));
+}
+
+// routes
+var indexRouter = require('./routes/index');
+var loginRouter = require('./routes/login');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
