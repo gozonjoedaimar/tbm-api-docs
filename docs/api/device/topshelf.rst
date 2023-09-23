@@ -31,13 +31,16 @@ Response schema
 
     {
         "color": {
-            "r": String,
-            "g": String,
-            "b": String
+            "r": "041", // 3 digit string
+            "g": "104",
+            "b": "220"
         },
-        "locate": 0 | 1, # If device location is on
-        "message": String,
-        "date": Date
+        "locate": 0, // or 1 = Device locate active
+        "decodedId": "89d7bf1851",
+        "status": true,
+        "message": "Device Online",
+        "date": "MM/DD/YY HH:mm:ss",
+        "incidents": []
     }
 
 Sample cURL request
@@ -59,13 +62,16 @@ Sample cURL response
 
     {
         "color": {
-            "r": "024",
-            "g": "122",
-            "b": "002"
+            "r": "041",
+            "g": "104",
+            "b": "220"
         },
         "locate": 0,
+        "decodedId": "89d7bf1851",
+        "status": true,
         "message": "Device Online",
-        "date": "05/22/23 10:41:47"
+        "date": "09/22/23 18:46:06",
+        "incidents": []
     }
 
 Events (Lift/Place)
@@ -101,10 +107,12 @@ Response schema
             "status": Boolean,
             "event": {
                 "datetime": Date,
+                ...
                 "flag": {
                     type: String
                     value: "Lift" | "Put"
                 },
+                ...
             }
         }
     ]
@@ -133,7 +141,9 @@ Sample cURL response
             "event": {
                 "datetime": "2023-05-22T15:16:56.325Z",
                 "location_name": "The Gypsy Case",
+                ...
                 "flag": "Put"
+                ...
             }
         }
     ]
@@ -164,10 +174,11 @@ Response schema
 .. code-block::
 
     {
-        "status": Boolean,
-        "message": String,
+        "status": boolean,
+        "message": "Device successfully updated",
         "data": {
-            "updated": Date,
+            "updated": "MM/DD/YY HH:mm:ss",
+            "deviceId": "89d7bf1851"
         }
     }
 
@@ -193,7 +204,7 @@ Sample cURl response
         "status": true,
         "message": "Device successfully updated",
         "data": {
-            "updated": "05/22/23 10:41:47",
+            "updated": "09/22/23 18:44:29",
+            "deviceId": "89d7bf1851"
         }
     }
-
