@@ -16,8 +16,8 @@ Request schema/example
 
 	PUT /api/device/place/<device_id>
 	{
-		"measured_weight": "1198",
-		"rfid": "RD0104",
+		"measured_weight": "1198", // 0 for lift
+		"rfid": "RD0104559", // at least 9 characters; 00000null for lift
 		"temperature": "",
 		"batteryLevel": ""
 	}
