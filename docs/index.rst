@@ -13,6 +13,7 @@ This is a comprehensive resource providing API documentation, guides, and refere
     :hidden:
     :caption: Device API
 
+    /api/device/heartbeat.rst
     /api/device/topshelf.rst
     /api/device/speedwell_or_backbar.rst
 
